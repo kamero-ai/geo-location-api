@@ -3,6 +3,8 @@
 import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import Image from "next/image";
+import Link from "next/link";
+import { ThemeToggle } from "./components/ThemeProvider";
 
 const Map = dynamic(() => import("./components/Map"), { ssr: false });
 
@@ -51,6 +53,9 @@ export default function Home() {
           priority
         />
         <nav className="nav">
+          <Link href="/docs" className="nav-link">
+            Docs
+          </Link>
           <a
             href="https://github.com/kamero-ai/geo-location-api"
             target="_blank"
@@ -62,6 +67,7 @@ export default function Home() {
           <a href="/api/geo" className="nav-link">
             API
           </a>
+          <ThemeToggle />
         </nav>
       </header>
 

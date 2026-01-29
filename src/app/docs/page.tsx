@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import "./docs.css";
+import { ThemeToggle } from "../components/ThemeProvider";
 
 export default function DocsPage() {
   const [copied, setCopied] = useState<string | null>(null);
@@ -23,6 +24,7 @@ export default function DocsPage() {
         <nav className="docs-nav">
           <Link href="/">Home</Link>
           <a href="https://github.com/kamero-ai/geo-location-api" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <ThemeToggle />
         </nav>
       </header>
 

@@ -2,6 +2,8 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background: var(--bg-primary);
+  color: var(--text-primary);
 }
 
 .docs-header {
@@ -12,13 +14,14 @@
   border-bottom: 1px solid var(--border);
   position: sticky;
   top: 0;
-  background: var(--bg-dark);
+  background: var(--bg-primary);
   z-index: 100;
 }
 
 .docs-nav {
   display: flex;
   gap: 1.5rem;
+  align-items: center;
 }
 
 .docs-nav a {
@@ -48,6 +51,7 @@
   top: 60px;
   height: calc(100vh - 60px);
   overflow-y: auto;
+  background: var(--bg-primary);
 }
 
 .docs-sidebar h4 {
@@ -135,7 +139,7 @@
 
 /* Code blocks */
 .code-wrapper {
-  background: #0d0d18;
+  background: var(--code-bg);
   border: 1px solid var(--border);
   border-radius: 0.5rem;
   margin: 1rem 0 1.5rem;
@@ -183,6 +187,10 @@
   font-family: "SF Mono", Monaco, "Cascadia Code", monospace;
   font-size: 0.875rem;
   line-height: 1.6;
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .code-wrapper code {
   color: #e0e0e0;
 }
 
