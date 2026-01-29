@@ -1,0 +1,90 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Kamero Geo Location API",
+    "description": "Free, open-source API to get user geolocation by IP address. No API key required. Returns city, country, coordinates, and region data.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "Kamero AI",
+      "url": "https://kamero.ai"
+    },
+    "license": {
+      "name": "MIT",
+      "url": "https://github.com/kamero-ai/geo-location-api/blob/main/LICENSE"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://geo.kamero.ai",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/api/geo": {
+      "get": {
+        "operationId": "getGeolocation",
+        "summary": "Get user geolocation by IP",
+        "description": "Returns geolocation data for the requesting client's IP address including city, country, region, and coordinates.",
+        "responses": {
+          "200": {
+            "description": "Successful response with geolocation data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GeoLocation"
+                },
+                "example": {
+                  "city": "San Francisco",
+                  "country": "US",
+                  "countryRegion": "CA",
+                  "latitude": "37.7749",
+                  "longitude": "-122.4194",
+                  "region": "sfo1"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "GeoLocation": {
+        "type": "object",
+        "properties": {
+          "city": {
+            "type": "string",
+            "description": "City name of the visitor",
+            "example": "San Francisco"
+          },
+          "country": {
+            "type": "string",
+            "description": "ISO 3166-1 alpha-2 country code",
+            "example": "US"
+          },
+          "countryRegion": {
+            "type": "string",
+            "description": "ISO 3166-2 region/state code",
+            "example": "CA"
+          },
+          "latitude": {
+            "type": "string",
+            "description": "Latitude coordinate",
+            "example": "37.7749"
+          },
+          "longitude": {
+            "type": "string",
+            "description": "Longitude coordinate",
+            "example": "-122.4194"
+          },
+          "region": {
+            "type": "string",
+            "description": "Vercel Edge Network region that served the request",
+            "example": "sfo1"
+          }
+        }
+      }
+    }
+  }
+}

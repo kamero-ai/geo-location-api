@@ -1,0 +1,73 @@
+# Kamero Geo Location API
+
+> Free, open-source API to get user geolocation by IP address. No API key required.
+
+## Quick Start
+
+GET https://geo.kamero.ai/api/geo
+
+## Response Format
+
+```json
+{
+  "city": "San Francisco",
+  "country": "US",
+  "countryRegion": "CA",
+  "latitude": "37.7749",
+  "longitude": "-122.4194",
+  "region": "sfo1"
+}
+```
+
+## Fields
+
+- city: City name
+- country: ISO 3166-1 alpha-2 country code
+- countryRegion: ISO 3166-2 region/state code
+- latitude: Latitude coordinate
+- longitude: Longitude coordinate
+- region: Vercel Edge Network region
+
+## JavaScript Example
+
+```javascript
+const response = await fetch("https://geo.kamero.ai/api/geo");
+const location = await response.json();
+console.log(location.city, location.country);
+```
+
+## Python Example
+
+```python
+import requests
+response = requests.get("https://geo.kamero.ai/api/geo")
+location = response.json()
+print(location["city"], location["country"])
+```
+
+## cURL Example
+
+```bash
+curl https://geo.kamero.ai/api/geo
+```
+
+## Key Features
+
+- No API key required
+- No rate limits
+- Free and open source (MIT License)
+- Sub-50ms response times globally
+- CORS enabled for all origins
+- Powered by Vercel Edge Network
+
+## Self-Hosting
+
+Deploy your own instance:
+https://vercel.com/new/clone?repository-url=https://github.com/kamero-ai/geo-location-api
+
+## Links
+
+- Website: https://geo.kamero.ai
+- Documentation: https://geo.kamero.ai/docs
+- GitHub: https://github.com/kamero-ai/geo-location-api
+- Organization: https://kamero.ai

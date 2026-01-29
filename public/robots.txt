@@ -1,0 +1,33 @@
+# Kamero Geo Location API
+# https://geo.kamero.ai
+
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://geo.kamero.ai/sitemap.xml
+
+# AI Crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Anthropic-AI
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Cohere-AI
+Allow: /
+
+# LLM Context
+# See /llms.txt for AI-friendly documentation
