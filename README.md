@@ -1,36 +1,87 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Geo API
+
+A simple, open-source API that returns visitor geolocation data using [Vercel's Geo-IP headers](https://vercel.com/docs/edge-network/headers#x-vercel-ip-city).
+
+## Live Demo
+
+Deploy your own instance and hit `/api/geo` to get your location data.
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/kamero-ai/geo-location-api-)
+
+## API Response
+
+```json
+{
+  "city": "San Francisco",
+  "country": "US",
+  "countryRegion": "CA",
+  "latitude": "37.7749",
+  "longitude": "-122.4194",
+  "region": "sfo1"
+}
+```
+
+| Field | Description |
+|-------|-------------|
+| `city` | The city name |
+| `country` | ISO 3166-1 alpha-2 country code |
+| `countryRegion` | ISO 3166-2 region code |
+| `latitude` | Latitude coordinate |
+| `longitude` | Longitude coordinate |
+| `region` | Vercel Edge Network region that served the request |
+
+## Tech Stack
+
+- [Next.js 15](https://nextjs.org/) (App Router)
+- [Bun](https://bun.sh/) runtime
+- [@vercel/functions](https://vercel.com/docs/functions) for geolocation helpers
+- TypeScript
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- [Bun](https://bun.sh/) installed
+- [Vercel CLI](https://vercel.com/cli) (optional, for deployment)
+
+### Installation
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Clone the repo
+git clone https://github.com/kamero-ai/geo-location-api-.git
+cd geo-api
+
+# Install dependencies
+bun install
+
+# Run locally
+bun run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Local Development
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+> **Note:** Geolocation headers are only available when deployed to Vercel. Locally, all values will return `undefined`.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Deploy to Vercel
 
-## Learn More
+```bash
+vercel deploy
+```
 
-To learn more about Next.js, take a look at the following resources:
+Or click the "Deploy with Vercel" button above.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Usage
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Once deployed, make a GET request to your deployment:
 
-## Deploy on Vercel
+```bash
+curl https://your-app.vercel.app/api/geo
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### CORS
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The API is public and accessible from any origin.
+
+## License
+
+MIT

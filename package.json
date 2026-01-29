@@ -1,7 +1,20 @@
 {
   "name": "geo-api",
-  "version": "0.1.0",
-  "private": true,
+  "version": "1.0.0",
+  "description": "Simple API to get visitor geolocation using Vercel's Geo-IP headers",
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kamero-ai/geo-location-api-"
+  },
+  "keywords": [
+    "geolocation",
+    "vercel",
+    "geo-ip",
+    "nextjs",
+    "api"
+  ],
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -9,6 +22,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@vercel/functions": "^3.4.0",
     "next": "16.1.6",
     "react": "19.2.3",
     "react-dom": "19.2.3"
