@@ -50,13 +50,22 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 export function useTheme() {
   const context = useContext(ThemeContext);
   if (!context) {
-    throw new Error("useTheme must be used within ThemeProvider");
+    return { theme: "dark" as Theme, toggleTheme: () => {} };
   }
   return context;
 }
 
 export function ThemeToggle() {
   const { theme, toggleTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return <button className="theme-toggle" aria-label="Toggle theme">🌙</button>;
+  }
 
   return (
     <button
