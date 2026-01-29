@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
+import Image from "next/image";
 
 const Map = dynamic(() => import("./components/Map"), { ssr: false });
 
@@ -17,6 +18,7 @@ interface GeoData {
 export default function Home() {
   const [geo, setGeo] = useState<GeoData | null>(null);
   const [loading, setLoading] = useState(true);
+  const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     fetch("/api/geo")
@@ -28,185 +30,235 @@ export default function Home() {
       .catch(() => setLoading(false));
   }, []);
 
+  const copyToClipboard = (text: string) => {
+    navigator.clipboard.writeText(text);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  const apiExample = `fetch("https://geo.kamero.ai/api/geo")
+  .then(res => res.json())
+  .then(data => console.log(data));`;
+
   return (
-    <div style={styles.container}>
-      <header style={styles.header}>
-        <h1 style={styles.title}>Kamero Geo Location API</h1>
-        <p style={styles.subtitle}>Free & Open Source • Powered by Vercel Edge</p>
-      </header>
-
-      <main style={styles.main}>
-        <div style={styles.mapContainer}>
-          {loading ? (
-            <div style={styles.loading}>Loading your location...</div>
-          ) : geo?.latitude && geo?.longitude ? (
-            <Map
-              lat={parseFloat(geo.latitude)}
-              lng={parseFloat(geo.longitude)}
-              city={geo.city || "Unknown"}
-              country={geo.country || "Unknown"}
-            />
-          ) : (
-            <div style={styles.loading}>Could not determine location</div>
-          )}
-        </div>
-
-        <div style={styles.infoCard}>
-          <h2 style={styles.cardTitle}>Your Location</h2>
-          {loading ? (
-            <p>Detecting...</p>
-          ) : geo ? (
-            <div style={styles.grid}>
-              <InfoItem label="City" value={geo.city} />
-              <InfoItem label="Country" value={geo.country} />
-              <InfoItem label="Region" value={geo.countryRegion} />
-              <InfoItem label="Latitude" value={geo.latitude} />
-              <InfoItem label="Longitude" value={geo.longitude} />
-              <InfoItem label="Edge" value={geo.region} />
-            </div>
-          ) : (
-            <p>Location unavailable</p>
-          )}
-        </div>
-
-        <div style={styles.apiSection}>
-          <h2 style={styles.cardTitle}>API Endpoint</h2>
-          <code style={styles.code}>GET /api/geo</code>
-          <p style={styles.apiDesc}>
-            Returns JSON with city, country, coordinates, and more.
-          </p>
+    <div className="container">
+      <header className="header">
+        <Image
+          src="/kamero_logo.svg"
+          alt="Kamero Logo"
+          width={160}
+          height={40}
+          priority
+        />
+        <nav className="nav">
           <a
             href="https://github.com/kamero-ai/geo-location-api"
             target="_blank"
             rel="noopener noreferrer"
-            style={styles.link}
+            className="nav-link"
           >
-            View on GitHub →
+            GitHub
           </a>
-        </div>
+          <a href="/api/geo" className="nav-link">
+            API
+          </a>
+        </nav>
+      </header>
+
+      <main className="main">
+        <section className="hero">
+          <h1 className="title">
+            Free Geo IP Location API
+          </h1>
+          <p className="subtitle">
+            Get user location by IP address instantly. No API key required.
+            <br />
+            Open source & powered by Vercel Edge Network.
+          </p>
+        </section>
+
+        <section className="map-section">
+          <div className="map-container">
+            {loading ? (
+              <div className="loading">
+                <div className="spinner"></div>
+                <span>Detecting your location...</span>
+              </div>
+            ) : geo?.latitude && geo?.longitude ? (
+              <Map
+                lat={parseFloat(geo.latitude)}
+                lng={parseFloat(geo.longitude)}
+                city={geo.city || "Unknown"}
+                country={geo.country || "Unknown"}
+              />
+            ) : (
+              <div className="loading">Could not determine location</div>
+            )}
+          </div>
+
+          <div className="location-card">
+            <h2 className="card-title">Your Location</h2>
+            {loading ? (
+              <div className="loading-text">Detecting...</div>
+            ) : geo ? (
+              <div className="location-grid">
+                <LocationItem label="City" value={geo.city} />
+                <LocationItem label="Country" value={geo.country} />
+                <LocationItem label="Region" value={geo.countryRegion} />
+                <LocationItem label="Latitude" value={geo.latitude} />
+                <LocationItem label="Longitude" value={geo.longitude} />
+                <LocationItem label="Edge Server" value={geo.region} />
+              </div>
+            ) : (
+              <div className="loading-text">Location unavailable</div>
+            )}
+          </div>
+        </section>
+
+        <section className="api-section">
+          <h2 className="section-title">Quick Start</h2>
+          <p className="section-desc">
+            Make a GET request to get geolocation data as JSON
+          </p>
+
+          <div className="endpoint-box">
+            <code className="endpoint">GET https://geo.kamero.ai/api/geo</code>
+            <button
+              className="copy-btn"
+              onClick={() => copyToClipboard("https://geo.kamero.ai/api/geo")}
+            >
+              {copied ? "Copied!" : "Copy"}
+            </button>
+          </div>
+
+          <div className="code-block">
+            <div className="code-header">
+              <span>JavaScript</span>
+            </div>
+            <pre className="code-content">{apiExample}</pre>
+          </div>
+
+          <div className="response-block">
+            <div className="code-header">
+              <span>Response</span>
+            </div>
+            <pre className="code-content">
+{`{
+  "city": "${geo?.city || "San Francisco"}",
+  "country": "${geo?.country || "US"}",
+  "countryRegion": "${geo?.countryRegion || "CA"}",
+  "latitude": "${geo?.latitude || "37.7749"}",
+  "longitude": "${geo?.longitude || "-122.4194"}",
+  "region": "${geo?.region || "sfo1"}"
+}`}
+            </pre>
+          </div>
+        </section>
+
+        <section className="features-section">
+          <h2 className="section-title">Why Use This API?</h2>
+          <div className="features-grid">
+            <FeatureCard
+              icon="⚡"
+              title="Lightning Fast"
+              description="Powered by Vercel Edge Network for sub-50ms response times globally"
+            />
+            <FeatureCard
+              icon="🔓"
+              title="No API Key"
+              description="Start using immediately without registration or authentication"
+            />
+            <FeatureCard
+              icon="🌍"
+              title="Global Coverage"
+              description="Accurate geolocation data for visitors from anywhere in the world"
+            />
+            <FeatureCard
+              icon="📖"
+              title="Open Source"
+              description="MIT licensed. Fork it, modify it, deploy your own instance"
+            />
+          </div>
+        </section>
+
+        <section className="cta-section">
+          <h2 className="cta-title">Ready to Get Started?</h2>
+          <p className="cta-desc">
+            Deploy your own instance or use our hosted API for free
+          </p>
+          <div className="cta-buttons">
+            <a
+              href="https://vercel.com/new/clone?repository-url=https://github.com/kamero-ai/geo-location-api"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-primary"
+            >
+              Deploy on Vercel
+            </a>
+            <a
+              href="https://github.com/kamero-ai/geo-location-api"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-secondary"
+            >
+              View on GitHub
+            </a>
+          </div>
+        </section>
       </main>
 
-      <footer style={styles.footer}>
-        <p>© 2026 Kamero AI • MIT License</p>
+      <footer className="footer">
+        <div className="footer-content">
+          <Image
+            src="/kamero_logo.svg"
+            alt="Kamero Logo"
+            width={120}
+            height={30}
+          />
+          <p className="footer-text">
+            © 2026 Kamero AI • MIT License
+          </p>
+          <div className="footer-links">
+            <a href="https://kamero.ai" target="_blank" rel="noopener noreferrer">
+              Kamero AI
+            </a>
+            <a
+              href="https://github.com/kamero-ai/geo-location-api"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub
+            </a>
+          </div>
+        </div>
       </footer>
     </div>
   );
 }
 
-function InfoItem({ label, value }: { label: string; value?: string }) {
+function LocationItem({ label, value }: { label: string; value?: string }) {
   return (
-    <div style={styles.infoItem}>
-      <span style={styles.label}>{label}</span>
-      <span style={styles.value}>{value || "—"}</span>
+    <div className="location-item">
+      <span className="location-label">{label}</span>
+      <span className="location-value">{value || "—"}</span>
     </div>
   );
 }
 
-const styles: { [key: string]: React.CSSProperties } = {
-  container: {
-    minHeight: "100vh",
-    background: "linear-gradient(135deg, #0f0f23 0%, #1a1a3e 100%)",
-    color: "#fff",
-    fontFamily: "system-ui, -apple-system, sans-serif",
-  },
-  header: {
-    textAlign: "center",
-    padding: "3rem 1rem 1rem",
-  },
-  title: {
-    fontSize: "2.5rem",
-    fontWeight: 700,
-    margin: 0,
-    background: "linear-gradient(90deg, #00d4ff, #7c3aed)",
-    WebkitBackgroundClip: "text",
-    WebkitTextFillColor: "transparent",
-  },
-  subtitle: {
-    color: "#888",
-    marginTop: "0.5rem",
-  },
-  main: {
-    maxWidth: "900px",
-    margin: "0 auto",
-    padding: "1rem",
-    display: "flex",
-    flexDirection: "column",
-    gap: "1.5rem",
-  },
-  mapContainer: {
-    height: "400px",
-    borderRadius: "1rem",
-    overflow: "hidden",
-    background: "#1e1e3f",
-    boxShadow: "0 4px 20px rgba(0,0,0,0.3)",
-  },
-  loading: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    height: "100%",
-    color: "#888",
-  },
-  infoCard: {
-    background: "rgba(255,255,255,0.05)",
-    borderRadius: "1rem",
-    padding: "1.5rem",
-    backdropFilter: "blur(10px)",
-  },
-  cardTitle: {
-    fontSize: "1.25rem",
-    marginBottom: "1rem",
-    fontWeight: 600,
-  },
-  grid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))",
-    gap: "1rem",
-  },
-  infoItem: {
-    display: "flex",
-    flexDirection: "column",
-    gap: "0.25rem",
-  },
-  label: {
-    fontSize: "0.75rem",
-    color: "#888",
-    textTransform: "uppercase",
-    letterSpacing: "0.05em",
-  },
-  value: {
-    fontSize: "1.1rem",
-    fontWeight: 500,
-  },
-  apiSection: {
-    background: "rgba(255,255,255,0.05)",
-    borderRadius: "1rem",
-    padding: "1.5rem",
-    textAlign: "center",
-  },
-  code: {
-    display: "inline-block",
-    background: "#0d0d1a",
-    padding: "0.75rem 1.5rem",
-    borderRadius: "0.5rem",
-    fontFamily: "monospace",
-    fontSize: "1rem",
-    color: "#00d4ff",
-    marginBottom: "0.75rem",
-  },
-  apiDesc: {
-    color: "#888",
-    marginBottom: "1rem",
-  },
-  link: {
-    color: "#7c3aed",
-    textDecoration: "none",
-    fontWeight: 500,
-  },
-  footer: {
-    textAlign: "center",
-    padding: "2rem",
-    color: "#555",
-    fontSize: "0.875rem",
-  },
-};
+function FeatureCard({
+  icon,
+  title,
+  description,
+}: {
+  icon: string;
+  title: string;
+  description: string;
+}) {
+  return (
+    <div className="feature-card">
+      <span className="feature-icon">{icon}</span>
+      <h3 className="feature-title">{title}</h3>
+      <p className="feature-desc">{description}</p>
+    </div>
+  );
+}
