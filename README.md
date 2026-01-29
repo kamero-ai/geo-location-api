@@ -6,7 +6,7 @@ A simple, open-source API that returns visitor geolocation data using [Vercel's 
 
 Deploy your own instance and hit `/api/geo` to get your location data.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/kamero-ai/geo-location-api-)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/kamero-ai/geo-location-api)
 
 ## API Response
 
@@ -48,7 +48,7 @@ Deploy your own instance and hit `/api/geo` to get your location data.
 
 ```bash
 # Clone the repo
-git clone https://github.com/kamero-ai/geo-location-api-.git
+git clone https://github.com/kamero-ai/geo-location-api.git
 cd geo-api
 
 # Install dependencies
