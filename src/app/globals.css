@@ -129,13 +129,13 @@ body {
 /* Map Section */
 .map-section {
   display: grid;
-  grid-template-columns: 1fr 320px;
+  grid-template-columns: 1fr 380px;
   gap: 1.5rem;
   margin-bottom: 4rem;
 }
 
 .map-container {
-  height: 400px;
+  height: 450px;
   border-radius: 1rem;
   overflow: hidden;
   background: var(--bg-card);
@@ -170,6 +170,8 @@ body {
   border: 1px solid var(--border);
   border-radius: 1rem;
   padding: 1.5rem;
+  height: 450px;
+  overflow-y: auto;
 }
 
 .card-title {
@@ -301,7 +303,7 @@ body {
 
 .features-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
   margin-top: 2rem;
 }
@@ -461,9 +463,12 @@ body {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: 0.75rem;
-  padding: 1.25rem;
+  padding: 1.25rem 1rem;
   text-align: center;
   transition: border-color 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .data-card:hover {
@@ -599,9 +604,19 @@ body {
 }
 
 /* Responsive */
+@media (max-width: 1100px) {
+  .data-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
 @media (max-width: 900px) {
   .map-section {
     grid-template-columns: 1fr;
+  }
+  
+  .location-card {
+    height: auto;
   }
   
   .features-grid {
@@ -635,7 +650,7 @@ body {
   }
   
   .data-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
   
   .usecases-grid {
