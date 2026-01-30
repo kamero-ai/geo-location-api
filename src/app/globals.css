@@ -432,6 +432,172 @@ body {
   background: var(--bg-secondary);
 }
 
+/* Hero Buttons */
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+/* Demo Section */
+.demo-section {
+  margin-bottom: 4rem;
+}
+
+/* Data Points Section */
+.data-section {
+  margin-bottom: 4rem;
+}
+
+.data-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.data-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+  text-align: center;
+  transition: border-color 0.2s;
+}
+
+.data-card:hover {
+  border-color: var(--primary);
+}
+
+.data-field {
+  display: inline-block;
+  background: var(--code-bg);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  color: var(--accent);
+  margin-bottom: 0.75rem;
+}
+
+.data-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.data-desc {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+/* Use Cases Section */
+.usecases-section {
+  margin-bottom: 4rem;
+}
+
+.usecases-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.usecase-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.usecase-card:hover {
+  border-color: var(--primary);
+  background: var(--bg-card-hover);
+}
+
+.usecase-icon {
+  font-size: 1.75rem;
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.usecase-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.usecase-desc {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* FAQ Section */
+.faq-section {
+  margin-bottom: 4rem;
+}
+
+.faq-list {
+  max-width: 800px;
+  margin: 2rem auto 0;
+}
+
+.faq-item {
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  margin-bottom: 0.75rem;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+
+.faq-item:hover {
+  border-color: var(--primary);
+}
+
+.faq-item.open {
+  border-color: var(--primary);
+}
+
+.faq-question {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+  background: var(--bg-card);
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  transition: background 0.2s;
+}
+
+.faq-question:hover {
+  background: var(--bg-card-hover);
+}
+
+.faq-icon {
+  font-size: 1.25rem;
+  color: var(--primary);
+  font-weight: 300;
+}
+
+.faq-answer {
+  padding: 0 1.5rem 1.25rem;
+  background: var(--bg-card);
+}
+
+.faq-answer p {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  font-size: 0.9375rem;
+}
+
 /* Responsive */
 @media (max-width: 900px) {
   .map-section {
@@ -439,6 +605,14 @@ body {
   }
   
   .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .data-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .usecases-grid {
     grid-template-columns: repeat(2, 1fr);
   }
   
@@ -458,6 +632,19 @@ body {
   
   .features-grid {
     grid-template-columns: 1fr;
+  }
+  
+  .data-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .usecases-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
   }
   
   .footer-content {

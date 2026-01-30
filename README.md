@@ -40,23 +40,43 @@ fetch("https://geo.kamero.ai/api/geo")
 
 ```json
 {
+  "ip": "203.0.113.42",
   "city": "San Francisco",
   "country": "US",
   "countryRegion": "CA",
+  "continent": "NA",
   "latitude": "37.7749",
   "longitude": "-122.4194",
+  "timezone": "America/Los_Angeles",
+  "postalCode": "94102",
   "region": "sfo1"
 }
 ```
 
 | Field | Description |
 |-------|-------------|
+| `ip` | Public IP address of the visitor |
 | `city` | City name |
 | `country` | ISO 3166-1 alpha-2 country code |
 | `countryRegion` | ISO 3166-2 region/state code |
+| `continent` | Continent code (AF, AN, AS, EU, NA, OC, SA) |
 | `latitude` | Latitude coordinate |
 | `longitude` | Longitude coordinate |
+| `timezone` | IANA timezone name (e.g., "America/Los_Angeles") |
+| `postalCode` | Postal/ZIP code |
 | `region` | Vercel Edge Network region |
+
+### Continent Codes
+
+| Code | Continent |
+|------|-----------|
+| AF | Africa |
+| AN | Antarctica |
+| AS | Asia |
+| EU | Europe |
+| NA | North America |
+| OC | Oceania |
+| SA | South America |
 
 ## Use Cases
 
@@ -119,11 +139,15 @@ GET https://geo.kamero.ai/api/geo
 **Response:**
 ```json
 {
+  "ip": "string | undefined",
   "city": "string | undefined",
   "country": "string | undefined",
   "countryRegion": "string | undefined",
+  "continent": "string | undefined",
   "latitude": "string | undefined",
   "longitude": "string | undefined",
+  "timezone": "string | undefined",
+  "postalCode": "string | undefined",
   "region": "string | undefined"
 }
 ```

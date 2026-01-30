@@ -2,8 +2,8 @@
   "schema_version": "v1",
   "name_for_human": "Kamero Geo Location API",
   "name_for_model": "kamero_geo_api",
-  "description_for_human": "Free API to get user geolocation by IP address. Returns city, country, coordinates. No API key required.",
-  "description_for_model": "Use this API to get geolocation data for a user based on their IP address. The API returns city, country (ISO 3166-1 alpha-2), region (ISO 3166-2), latitude, longitude, and Vercel edge region. No authentication required. Make a GET request to /api/geo to get the location of the requesting client.",
+  "description_for_human": "Free API to get user geolocation by IP address. Returns IP, city, country, continent, timezone, postal code, and coordinates. No API key required.",
+  "description_for_model": "Use this API to get geolocation data for a user based on their IP address. The API returns: ip (public IP address), city, country (ISO 3166-1 alpha-2), countryRegion (ISO 3166-2), continent (AF/AN/AS/EU/NA/OC/SA), latitude, longitude, timezone (IANA format), postalCode, and region (Vercel edge region). No authentication required. Make a GET request to /api/geo to get the location of the requesting client.",
   "auth": {
     "type": "none"
   },

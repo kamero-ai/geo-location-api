@@ -139,11 +139,15 @@ export default function DocsPage() {
             <CodeBlock
               id="response"
               code={`{
+  "ip": "203.0.113.42",
   "city": "San Francisco",
   "country": "US",
   "countryRegion": "CA",
+  "continent": "NA",
   "latitude": "37.7749",
   "longitude": "-122.4194",
+  "timezone": "America/Los_Angeles",
+  "postalCode": "94102",
   "region": "sfo1"
 }`}
               language="json"
@@ -164,6 +168,11 @@ export default function DocsPage() {
               </thead>
               <tbody>
                 <tr>
+                  <td><code>ip</code></td>
+                  <td>string | undefined</td>
+                  <td>Public IP address of the visitor</td>
+                </tr>
+                <tr>
                   <td><code>city</code></td>
                   <td>string | undefined</td>
                   <td>City name of the visitor</td>
@@ -179,6 +188,11 @@ export default function DocsPage() {
                   <td>ISO 3166-2 region/state code (e.g., &quot;CA&quot; for California)</td>
                 </tr>
                 <tr>
+                  <td><code>continent</code></td>
+                  <td>string | undefined</td>
+                  <td>ISO 3166-1 two-character continent code (see table below)</td>
+                </tr>
+                <tr>
                   <td><code>latitude</code></td>
                   <td>string | undefined</td>
                   <td>Latitude coordinate as string</td>
@@ -189,12 +203,43 @@ export default function DocsPage() {
                   <td>Longitude coordinate as string</td>
                 </tr>
                 <tr>
+                  <td><code>timezone</code></td>
+                  <td>string | undefined</td>
+                  <td>IANA timezone name (e.g., &quot;America/Los_Angeles&quot;, &quot;Europe/London&quot;)</td>
+                </tr>
+                <tr>
+                  <td><code>postalCode</code></td>
+                  <td>string | undefined</td>
+                  <td>Postal/ZIP code close to the user&apos;s location</td>
+                </tr>
+                <tr>
                   <td><code>region</code></td>
                   <td>string | undefined</td>
                   <td>Vercel Edge Network region that served the request</td>
                 </tr>
               </tbody>
             </table>
+
+            <h3>Continent Codes</h3>
+            <p>The <code>continent</code> field returns a two-character ISO 3166-1 code:</p>
+            <table className="docs-table">
+              <thead>
+                <tr>
+                  <th>Code</th>
+                  <th>Continent</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td><code>AF</code></td><td>Africa</td></tr>
+                <tr><td><code>AN</code></td><td>Antarctica</td></tr>
+                <tr><td><code>AS</code></td><td>Asia</td></tr>
+                <tr><td><code>EU</code></td><td>Europe</td></tr>
+                <tr><td><code>NA</code></td><td>North America</td></tr>
+                <tr><td><code>OC</code></td><td>Oceania</td></tr>
+                <tr><td><code>SA</code></td><td>South America</td></tr>
+              </tbody>
+            </table>
+
             <div className="warning-box">
               <strong>Note:</strong> All fields may return <code>undefined</code> if geolocation 
               cannot be determined (e.g., VPN users, private networks, or local development).
@@ -338,11 +383,15 @@ import (
 )
 
 type GeoLocation struct {
+    IP            string \`json:"ip"\`
     City          string \`json:"city"\`
     Country       string \`json:"country"\`
     CountryRegion string \`json:"countryRegion"\`
+    Continent     string \`json:"continent"\`
     Latitude      string \`json:"latitude"\`
     Longitude     string \`json:"longitude"\`
+    Timezone      string \`json:"timezone"\`
+    PostalCode    string \`json:"postalCode"\`
     Region        string \`json:"region"\`
 }
 
@@ -353,7 +402,7 @@ func main() {
     var location GeoLocation
     json.NewDecoder(resp.Body).Decode(&location)
 
-    fmt.Printf("City: %s, Country: %s\\n", location.City, location.Country)
+    fmt.Printf("IP: %s, City: %s, Country: %s\\n", location.IP, location.City, location.Country)
 }`}
               language="go"
               copied={copied}

@@ -2,8 +2,8 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Kamero Geo Location API",
-    "description": "Free, open-source API to get user geolocation by IP address. No API key required. Returns city, country, coordinates, and region data.",
-    "version": "1.0.0",
+    "description": "Free, open-source API to get user geolocation by IP address. No API key required. Returns IP, city, country, continent, coordinates, timezone, postal code, and region data.",
+    "version": "1.1.0",
     "contact": {
       "name": "Kamero AI",
       "url": "https://kamero.ai"
@@ -24,7 +24,7 @@
       "get": {
         "operationId": "getGeolocation",
         "summary": "Get user geolocation by IP",
-        "description": "Returns geolocation data for the requesting client's IP address including city, country, region, and coordinates.",
+        "description": "Returns geolocation data for the requesting client's IP address including IP, city, country, continent, region, coordinates, timezone, and postal code.",
         "responses": {
           "200": {
             "description": "Successful response with geolocation data",
@@ -34,11 +34,15 @@
                   "$ref": "#/components/schemas/GeoLocation"
                 },
                 "example": {
+                  "ip": "203.0.113.42",
                   "city": "San Francisco",
                   "country": "US",
                   "countryRegion": "CA",
+                  "continent": "NA",
                   "latitude": "37.7749",
                   "longitude": "-122.4194",
+                  "timezone": "America/Los_Angeles",
+                  "postalCode": "94102",
                   "region": "sfo1"
                 }
               }
@@ -53,6 +57,11 @@
       "GeoLocation": {
         "type": "object",
         "properties": {
+          "ip": {
+            "type": "string",
+            "description": "Public IP address of the visitor",
+            "example": "203.0.113.42"
+          },
           "city": {
             "type": "string",
             "description": "City name of the visitor",
@@ -68,6 +77,12 @@
             "description": "ISO 3166-2 region/state code",
             "example": "CA"
           },
+          "continent": {
+            "type": "string",
+            "description": "ISO 3166-1 two-character continent code. AF=Africa, AN=Antarctica, AS=Asia, EU=Europe, NA=North America, OC=Oceania, SA=South America",
+            "example": "NA",
+            "enum": ["AF", "AN", "AS", "EU", "NA", "OC", "SA"]
+          },
           "latitude": {
             "type": "string",
             "description": "Latitude coordinate",
@@ -77,6 +92,16 @@
             "type": "string",
             "description": "Longitude coordinate",
             "example": "-122.4194"
+          },
+          "timezone": {
+            "type": "string",
+            "description": "IANA timezone name",
+            "example": "America/Los_Angeles"
+          },
+          "postalCode": {
+            "type": "string",
+            "description": "Postal/ZIP code close to the user's location",
+            "example": "94102"
           },
           "region": {
             "type": "string",
