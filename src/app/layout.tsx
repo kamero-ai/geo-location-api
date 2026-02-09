@@ -182,6 +182,40 @@ const apiStructuredData = {
   },
 };
 
+const organizationStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Kamero AI",
+  url: "https://kamero.ai",
+  logo: "https://geo.kamero.ai/kamero_logo.svg",
+  sameAs: ["https://github.com/kamero-ai"],
+};
+
+const breadcrumbStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://geo.kamero.ai",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Documentation",
+      item: "https://geo.kamero.ai/docs",
+    },
+    {
+      "@type": "ListItem",
+      position: 3,
+      name: "Blog",
+      item: "https://geo.kamero.ai/blog",
+    },
+  ],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -222,6 +256,18 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(apiStructuredData),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationStructuredData),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(breadcrumbStructuredData),
           }}
         />
       </head>

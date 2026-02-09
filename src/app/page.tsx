@@ -114,6 +114,9 @@ export default function Home() {
           <Link href="/docs" className="nav-link">
             Docs
           </Link>
+          <Link href="/blog" className="nav-link">
+            Blog
+          </Link>
           <a
             href="https://github.com/kamero-ai/geo-location-api"
             target="_blank"
@@ -448,6 +451,7 @@ export default function Home() {
           />
           <p className="footer-text">© 2026 Kamero AI • MIT License</p>
           <div className="footer-links">
+            <Link href="/blog">Blog</Link>
             <a href="https://kamero.ai" target="_blank" rel="noopener noreferrer">
               Kamero AI
             </a>

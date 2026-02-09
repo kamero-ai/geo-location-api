@@ -23,6 +23,7 @@ export default function DocsPage() {
         </Link>
         <nav className="docs-nav">
           <Link href="/">Home</Link>
+          <Link href="/blog">Blog</Link>
           <a href="https://github.com/kamero-ai/geo-location-api" target="_blank" rel="noopener noreferrer">GitHub</a>
           <ThemeToggle />
         </nav>

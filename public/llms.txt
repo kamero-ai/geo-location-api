@@ -91,6 +91,15 @@ Note: Geolocation headers only work when deployed to Vercel.
 - Website: https://geo.kamero.ai
 - API Endpoint: https://geo.kamero.ai/api/geo
 - Documentation: https://geo.kamero.ai/docs
+- Blog: https://geo.kamero.ai/blog
 - OpenAPI Spec: https://geo.kamero.ai/openapi.json
 - GitHub: https://github.com/kamero-ai/geo-location-api
 - Organization: https://kamero.ai
+
+## Blog Articles
+
+- Free IP Geolocation APIs Compared (2026): https://geo.kamero.ai/blog/free-ip-geolocation-api-comparison-2026
+- How to Get User Location by IP in JavaScript: https://geo.kamero.ai/blog/how-to-get-user-location-by-ip-javascript
+- 7 Practical IP Geolocation Use Cases: https://geo.kamero.ai/blog/ip-geolocation-use-cases-for-developers
+- Build a Location-Aware App with Next.js: https://geo.kamero.ai/blog/build-location-aware-app-nextjs
+- How Accurate Is IP Geolocation?: https://geo.kamero.ai/blog/ip-geolocation-accuracy-explained
