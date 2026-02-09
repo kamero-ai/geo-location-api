@@ -4,26 +4,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://geo.kamero.ai";
 
   const blogPosts = [
-    {
-      slug: "free-ip-geolocation-api-comparison-2026",
-      date: "2026-02-09",
-    },
-    {
-      slug: "how-to-get-user-location-by-ip-javascript",
-      date: "2026-02-08",
-    },
-    {
-      slug: "ip-geolocation-use-cases-for-developers",
-      date: "2026-02-07",
-    },
-    {
-      slug: "build-location-aware-app-nextjs",
-      date: "2026-02-06",
-    },
-    {
-      slug: "ip-geolocation-accuracy-explained",
-      date: "2026-02-05",
-    },
+    { slug: "free-ip-geolocation-api-comparison-2026", date: "2026-02-09" },
+    { slug: "how-to-get-user-location-by-ip-javascript", date: "2026-02-08" },
+    { slug: "ip-geolocation-use-cases-for-developers", date: "2026-02-07" },
+    { slug: "build-location-aware-app-nextjs", date: "2026-02-06" },
+    { slug: "ip-geolocation-accuracy-explained", date: "2026-02-05" },
+    { slug: "ip-geolocation-python-tutorial", date: "2026-02-04" },
+    { slug: "geo-redirect-visitors-by-country", date: "2026-02-03" },
+    { slug: "what-is-my-ip-address-explained", date: "2026-02-02" },
+    { slug: "detect-user-timezone-javascript", date: "2026-02-01" },
+    { slug: "ip-geolocation-gdpr-privacy-compliance", date: "2026-01-30" },
+    { slug: "ip-geolocation-fraud-detection-guide", date: "2026-01-28" },
+    { slug: "show-local-currency-pricing-by-ip", date: "2026-01-26" },
+    { slug: "ip-geolocation-php-tutorial", date: "2026-01-24" },
+    { slug: "self-host-ip-geolocation-api-vercel", date: "2026-01-22" },
+    { slug: "ip-geolocation-go-golang-tutorial", date: "2026-01-20" },
+    { slug: "ipv4-vs-ipv6-differences-explained", date: "2026-01-18" },
   ];
 
   return [

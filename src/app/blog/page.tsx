@@ -49,6 +49,105 @@ const posts = [
     date: "Feb 5, 2026",
     readTime: "6 min read",
   },
+  {
+    slug: "ip-geolocation-python-tutorial",
+    title: "IP Geolocation in Python: Get Location from IP Address (2026 Guide)",
+    description:
+      "Learn how to get geolocation data from IP addresses in Python using a free API. Covers requests, Flask, Django middleware, caching, and pandas analysis.",
+    tag: "Tutorial",
+    date: "Feb 4, 2026",
+    readTime: "9 min read",
+  },
+  {
+    slug: "geo-redirect-visitors-by-country",
+    title: "How to Geo-Redirect Visitors by Country Using IP Geolocation",
+    description:
+      "Redirect website visitors to localized pages based on their country. Covers Next.js middleware, client-side JavaScript, and server-side approaches with best practices.",
+    tag: "Guide",
+    date: "Feb 3, 2026",
+    readTime: "8 min read",
+  },
+  {
+    slug: "what-is-my-ip-address-explained",
+    title: "What Is My IP Address? How IP Addresses Work (Simple Explanation)",
+    description:
+      "Learn what an IP address is, how it works, the difference between IPv4 and IPv6, public vs private IPs, and how websites use your IP to detect your location.",
+    tag: "Explainer",
+    date: "Feb 2, 2026",
+    readTime: "6 min read",
+  },
+  {
+    slug: "detect-user-timezone-javascript",
+    title: "How to Detect User Timezone in JavaScript (3 Methods Compared)",
+    description:
+      "Three ways to detect a user's timezone: Intl API, IP geolocation, and Date offset. Compare accuracy, reliability, and when to use each approach.",
+    tag: "Tutorial",
+    date: "Feb 1, 2026",
+    readTime: "7 min read",
+  },
+  {
+    slug: "ip-geolocation-gdpr-privacy-compliance",
+    title: "IP Geolocation and GDPR: What Developers Need to Know About Privacy",
+    description:
+      "Is IP geolocation GDPR compliant? Understand how privacy laws affect IP-based location detection, what counts as personal data, and how to use geolocation APIs responsibly.",
+    tag: "Guide",
+    date: "Jan 30, 2026",
+    readTime: "7 min read",
+  },
+  {
+    slug: "ip-geolocation-fraud-detection-guide",
+    title: "Using IP Geolocation for Fraud Detection: A Developer's Guide",
+    description:
+      "Use IP geolocation data to detect and prevent fraud. Covers location mismatch detection, velocity checks, impossible travel, and risk scoring with code examples.",
+    tag: "Guide",
+    date: "Jan 28, 2026",
+    readTime: "8 min read",
+  },
+  {
+    slug: "show-local-currency-pricing-by-ip",
+    title: "How to Show Local Currency and Pricing Based on Visitor IP Location",
+    description:
+      "Display prices in your visitor's local currency using IP geolocation. Covers country-to-currency mapping, Intl.NumberFormat, and purchasing power parity pricing.",
+    tag: "Tutorial",
+    date: "Jan 26, 2026",
+    readTime: "7 min read",
+  },
+  {
+    slug: "ip-geolocation-php-tutorial",
+    title: "IP Geolocation in PHP: Get Visitor Location (Free API Tutorial)",
+    description:
+      "Detect visitor location by IP in PHP using a free API. Covers file_get_contents, cURL, Laravel integration, WordPress, and caching strategies.",
+    tag: "Tutorial",
+    date: "Jan 24, 2026",
+    readTime: "8 min read",
+  },
+  {
+    slug: "self-host-ip-geolocation-api-vercel",
+    title: "How to Self-Host Your Own Free IP Geolocation API on Vercel",
+    description:
+      "Deploy your own IP geolocation API for free on Vercel in under 5 minutes. Full control, no rate limits, no third-party dependencies.",
+    tag: "Guide",
+    date: "Jan 22, 2026",
+    readTime: "6 min read",
+  },
+  {
+    slug: "ip-geolocation-go-golang-tutorial",
+    title: "IP Geolocation in Go: Get Location from IP Address (Golang Tutorial)",
+    description:
+      "Get geolocation data from IP addresses in Go. Covers net/http, JSON parsing, Gin middleware, concurrent lookups, and caching patterns.",
+    tag: "Tutorial",
+    date: "Jan 20, 2026",
+    readTime: "7 min read",
+  },
+  {
+    slug: "ipv4-vs-ipv6-differences-explained",
+    title: "IPv4 vs IPv6: Key Differences Developers Should Know (2026)",
+    description:
+      "Understand the differences between IPv4 and IPv6 — address format, adoption rates, NAT, geolocation accuracy, and what it means for developers.",
+    tag: "Explainer",
+    date: "Jan 18, 2026",
+    readTime: "6 min read",
+  },
 ];
 
 export default function BlogIndex() {
