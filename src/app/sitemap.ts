@@ -20,6 +20,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { slug: "self-host-ip-geolocation-api-vercel", date: "2026-01-22" },
     { slug: "ip-geolocation-go-golang-tutorial", date: "2026-01-20" },
     { slug: "ipv4-vs-ipv6-differences-explained", date: "2026-01-18" },
+    { slug: "ip-geolocation-curl-api-testing", date: "2026-01-16" },
+    { slug: "geo-blocking-restrict-access-by-country", date: "2026-01-15" },
+    { slug: "ip-geolocation-react-native-mobile", date: "2026-01-14" },
+    { slug: "ip-geolocation-csharp-dotnet-tutorial", date: "2026-01-14" },
+    { slug: "vpn-proxy-detection-ip-geolocation", date: "2026-01-13" },
+    { slug: "ip-geolocation-ruby-rails-tutorial", date: "2026-01-12" },
+    { slug: "ip-geolocation-java-spring-boot", date: "2026-01-12" },
+    { slug: "content-localization-i18n-geolocation", date: "2026-01-10" },
+    { slug: "ip-geolocation-serverless-edge-functions", date: "2026-01-08" },
+    { slug: "ip-geolocation-analytics-dashboards", date: "2026-01-06" },
   ];
 
   return [

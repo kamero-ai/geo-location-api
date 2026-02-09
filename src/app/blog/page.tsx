@@ -148,6 +148,96 @@ const posts = [
     date: "Jan 18, 2026",
     readTime: "6 min read",
   },
+  {
+    slug: "ip-geolocation-curl-api-testing",
+    title: "How to Test IP Geolocation APIs with cURL (Quick Examples)",
+    description:
+      "Learn how to test and debug IP geolocation APIs using cURL from the command line. Covers basic requests, JSON parsing with jq, headers, response times, and scripting.",
+    tag: "Tutorial",
+    date: "Jan 16, 2026",
+    readTime: "5 min read",
+  },
+  {
+    slug: "geo-blocking-restrict-access-by-country",
+    title: "How to Implement Geo-Blocking: Restrict Access by Country",
+    description:
+      "Block or allow access to your application based on visitor country using IP geolocation. Covers middleware, server-side, and edge-based approaches with code examples.",
+    tag: "Guide",
+    date: "Jan 15, 2026",
+    readTime: "8 min read",
+  },
+  {
+    slug: "ip-geolocation-react-native-mobile",
+    title: "IP Geolocation in React Native: Location Without Permissions",
+    description:
+      "Get approximate user location in React Native without requesting GPS permissions. Covers fetch, custom hooks, caching, and combining with native geolocation.",
+    tag: "Tutorial",
+    date: "Jan 14, 2026",
+    readTime: "7 min read",
+  },
+  {
+    slug: "ip-geolocation-csharp-dotnet-tutorial",
+    title: "IP Geolocation in C# .NET: Get Location from IP Address (2026 Guide)",
+    description:
+      "Get geolocation data from IP addresses in C# and .NET using a free API. Covers HttpClient, ASP.NET Core middleware, dependency injection, and caching.",
+    tag: "Tutorial",
+    date: "Jan 14, 2026",
+    readTime: "9 min read",
+  },
+  {
+    slug: "vpn-proxy-detection-ip-geolocation",
+    title: "VPN & Proxy Detection with IP Geolocation: What Developers Can Do",
+    description:
+      "Detect VPNs, proxies, and Tor exit nodes using IP geolocation signals. Covers detection techniques, accuracy limitations, and practical implementation strategies.",
+    tag: "Deep Dive",
+    date: "Jan 13, 2026",
+    readTime: "8 min read",
+  },
+  {
+    slug: "ip-geolocation-ruby-rails-tutorial",
+    title: "IP Geolocation in Ruby on Rails: Get Visitor Location (Free API)",
+    description:
+      "Detect visitor location by IP in Ruby and Rails using a free API. Covers Net::HTTP, Faraday, Rails middleware, caching, and controller helpers.",
+    tag: "Tutorial",
+    date: "Jan 12, 2026",
+    readTime: "7 min read",
+  },
+  {
+    slug: "ip-geolocation-java-spring-boot",
+    title: "IP Geolocation in Java & Spring Boot: Get Location from IP (2026)",
+    description:
+      "Get geolocation data from IP addresses in Java using a free API. Covers HttpClient, RestTemplate, WebClient, Spring Boot integration, caching, and filters.",
+    tag: "Tutorial",
+    date: "Jan 12, 2026",
+    readTime: "10 min read",
+  },
+  {
+    slug: "content-localization-i18n-geolocation",
+    title: "Content Localization with IP Geolocation: Auto-Detect Language & Region",
+    description:
+      "Use IP geolocation to automatically detect visitor language and region for content localization. Covers i18n strategies, locale detection, and implementation patterns.",
+    tag: "Guide",
+    date: "Jan 10, 2026",
+    readTime: "8 min read",
+  },
+  {
+    slug: "ip-geolocation-serverless-edge-functions",
+    title: "IP Geolocation in Serverless & Edge Functions (Vercel, Cloudflare, AWS Lambda)",
+    description:
+      "Use IP geolocation in serverless and edge functions. Covers Vercel Edge Middleware, Cloudflare Workers, AWS Lambda@Edge, and Deno Deploy with practical examples.",
+    tag: "Guide",
+    date: "Jan 8, 2026",
+    readTime: "9 min read",
+  },
+  {
+    slug: "ip-geolocation-analytics-dashboards",
+    title: "Build a Visitor Analytics Dashboard with IP Geolocation (2026 Guide)",
+    description:
+      "Build a real-time analytics dashboard that tracks visitor locations using IP geolocation. Covers data collection, storage, aggregation, and visualization.",
+    tag: "Guide",
+    date: "Jan 6, 2026",
+    readTime: "10 min read",
+  },
 ];
 
 export default function BlogIndex() {
